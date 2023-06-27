@@ -19,22 +19,25 @@ void main() async {
   ).then(
     (value) => Get.put(AuthController()),
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: darkMode,
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       // home: MyPage(),
       home: const LoginPage(),
     );
   }
+
+  final ThemeData darkMode = ThemeData(
+    brightness: Brightness.dark,
+  );
 }
